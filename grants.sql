@@ -1,0 +1,10 @@
+CREATE USER 'gokz'@'localhost' IDENTIFIED BY 'PutPasswordHere';
+CREATE DATABASE sourcemod;
+CREATE DATABASE gokz;
+CREATE DATABASE sourcemodlocal;
+CREATE DATABASE clientprefs;
+GRANT ALL PRIVILEGES ON sourcemod.* TO 'gokz'@'localhost';
+GRANT ALL PRIVILEGES ON gokz.* TO 'gokz'@'localhost';
+GRANT ALL PRIVILEGES ON sourcemodlocal.* TO 'gokz'@'localhost';
+GRANT ALL PRIVILEGES ON clientprefs.* TO 'gokz'@'localhost';
+FLUSH PRIVILEGES;
