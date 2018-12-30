@@ -100,6 +100,8 @@ RUN parse-env --env "LGSM_" >> env.json
 RUN rm -f INSTALLING.LOCK
 RUN mkdir -p ~/linuxgsm/lgsm/config-lgsm/$LGSM_GAMESERVERNAME
 
+RUN mkdir /home/linuxgsm/linuxgsm/log/
+RUN mkdir /home/linuxgsm/linuxgsm/log/script/
 RUN touch /home/linuxgsm/linuxgsm/log/script/lgsm-gameserver-script.log
 
 RUN touch INSTALLING.LOCK \
