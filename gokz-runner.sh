@@ -76,26 +76,3 @@ sleep 5s
 
 echo "sourcemod" | ./lgsm-gameserver mi
 sleep 5s
-
-#./lgsm-gameserver mu
-
-
-# # configure game-specfic settings
-#gomplate -f /home/linuxgsm/linuxgsm/gokz.tmpl -o /home/linuxgsm/linuxgsm/gokz.tmpl
-
-#
-#./lgsm-gameserver start
-#sleep 30s
-#
-
-#./lgsm-gameserver details
-#sleep 5s
-#./lgsm-gameserver monitor
-
-#tail -F ~/linuxgsm/log/console/lgsm-gameserver-console.log -F ~/linuxgsm/log/script/lgsm-gameserver-script.log -F ~/linuxgsm/log/script/lgsm-gameserver-alert.log
-#
-#while :
-#do
-#./lgsm-gameserver monitor
-#sleep 30s
-#done
