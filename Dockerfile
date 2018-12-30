@@ -97,8 +97,6 @@ ADD --chown=linuxgsm:linuxgsm lgsm-gameserver.cfg /home/linuxgsm/linuxgsm/lgsm/c
 
 USER linuxgsm
 
-RUN touch /home/linuxgsm/linuxgsm/log/script/lgsm-gameserver-script.log
-
 RUN parse-env --env "LGSM_" >> env.json
 RUN rm -f INSTALLING.LOCK
 RUN mkdir -p ~/linuxgsm/lgsm/config-lgsm/$LGSM_GAMESERVERNAME
