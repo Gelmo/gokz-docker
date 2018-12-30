@@ -73,7 +73,7 @@ sleep 5s
 
 
 # # configure game-specfic settings
-# gomplate -f ${servercfgfullpath}.tmpl -o ${servercfgfullpath}   // I can't predict what the filename is. 
+gomplate -f /home/linuxgsm/linuxgsm/gokz.tmpl -o /home/linuxgsm/linuxgsm/gokz.tmpl
 
 #
 #./lgsm-gameserver start
