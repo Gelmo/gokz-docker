@@ -99,6 +99,6 @@ USER linuxgsm
 
 HEALTHCHECK --start-period=60s --timeout=300s --interval=60s --retries=3 CMD ./docker-liveness.sh
 
-RUN ./gokz-runner.sh
+RUN /bin/bash /home/linuxgsm/linuxgsm/gokz-runner.sh
 
 CMD ["bash"]
