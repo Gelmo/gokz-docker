@@ -97,8 +97,24 @@ ADD --chown=linuxgsm:linuxgsm lgsm-gameserver.cfg /home/linuxgsm/linuxgsm/lgsm/c
 
 USER linuxgsm
 
-HEALTHCHECK --start-period=60s --timeout=300s --interval=60s --retries=3 CMD ./docker-liveness.sh
+RUN parse-env --env "LGSM_" >> env.json
+RUN rm -f INSTALLING.LOCK
+RUN mkdir -p ~/linuxgsm/lgsm/config-lgsm/$LGSM_GAMESERVERNAME
 
-RUN /bin/bash /home/linuxgsm/linuxgsm/gokz-runner.sh
+RUN touch INSTALLING.LOCK \
+ && ./linuxgsm.sh $LGSM_GAMESERVERNAME \
+ && mv $LGSM_GAMESERVERNAME lgsm-gameserver \
+ && ./lgsm-gameserver auto-install \
+ && rm -f INSTALLING.LOCK
+RUN wget https://kzmaps.tangoworldwide.net/mapcycles/gokz.txt \
+ && mv /home/linuxgsm/linuxgsm/gokz.txt /home/linuxgsm/linuxgsm/serverfiles/csgo/mapcycle.txt \
+ && touch /home/linuxgsm/linuxgsm/log/script/lgsm-gameserver-script.log \
+ && chmod +x /home/linuxgsm/linuxgsm/lgsm/functions/*.sh
+
+RUN echo "metamod" | ./lgsm-gameserver mi \
+ && sleep 5s
+
+RUN echo "sourcemod" | ./lgsm-gameserver mi \
+ && sleep 5s
 
 CMD ["bash"]
