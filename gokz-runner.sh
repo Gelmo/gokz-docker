@@ -63,17 +63,19 @@ if [ ! -f lgsm-gameserver ]; then
     exit 1
 fi
 
-echo "metamod" | ./lgsm-gameserver mi
-sleep 5s
-
-echo "sourcemod" | ./lgsm-gameserver mi
-sleep 5s
-
 wget https://kzmaps.tangoworldwide.net/mapcycles/gokz.txt
 
 mv /home/linuxgsm/linuxgsm/gokz.txt /home/linuxgsm/linuxgsm/serverfiles/csgo/mapcycle.txt
 
 touch /home/linuxgsm/linuxgsm/log/script/lgsm-gameserver-script.log
+
+chmod +x /home/linuxgsm/linuxgsm/lgsm/functions/*.sh
+
+echo "metamod" | ./lgsm-gameserver mi
+sleep 5s
+
+echo "sourcemod" | ./lgsm-gameserver mi
+sleep 5s
 
 #./lgsm-gameserver mu
 
