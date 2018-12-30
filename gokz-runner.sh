@@ -69,11 +69,16 @@ sleep 5s
 echo "sourcemod" | ./lgsm-gameserver mi
 sleep 5s
 
+wget https://kzmaps.tangoworldwide.net/mapcycles/gokz.txt
+
+rm /home/linuxgsm/linuxgsm/serverfiles/csgo/mapcycle.txt
+mv /home/linuxgsm/linuxgsm/gokz.txt /home/linuxgsm/linuxgsm/serverfiles/csgo/mapcycle.txt
+
 #./lgsm-gameserver mu
 
 
 # # configure game-specfic settings
-gomplate -f /home/linuxgsm/linuxgsm/gokz.tmpl -o /home/linuxgsm/linuxgsm/gokz.tmpl
+#gomplate -f /home/linuxgsm/linuxgsm/gokz.tmpl -o /home/linuxgsm/linuxgsm/gokz.tmpl
 
 #
 #./lgsm-gameserver start
