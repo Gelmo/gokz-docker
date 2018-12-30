@@ -146,11 +146,9 @@ sleep 0.5
 			echo ""
 			echo "Command"
 			echo "================================="
-			echo "tmux new-session -d -s \"${servicename}\" \"${executable} ${parms}\"" | tee -a "${lgsmlog}"
 			echo ""
 			echo "Error"
 			echo "================================="
-			cat "${lgsmlogdir}/.${servicename}-tmux-error.tmp" | tee -a "${lgsmlog}"
 
 			# Detected error https://linuxgsm.com/support
 			if grep -c "Operation not permitted" "${lgsmlogdir}/.${servicename}-tmux-error.tmp"
