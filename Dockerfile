@@ -94,14 +94,11 @@ ADD --chown=linuxgsm:linuxgsm gokz-runner.sh docker-liveness.sh docker-readiness
 ADD --chown=linuxgsm:linuxgsm functions/* /home/linuxgsm/linuxgsm/lgsm/functions/
 ADD --chown=linuxgsm:linuxgsm custom_configs/ /home/linuxgsm/linuxgsm-configs
 ADD --chown=linuxgsm:linuxgsm databases.cfg /home/linuxgsm/linuxgsm/serverfiles/csgo/addons/sourcemod/configs/
-#ADD --chown=linuxgsm:linuxgsm grants.sql /home/linuxgsm/
-
-#RUN service mysql enable
-#RUN service mysql start
-#RUN mysql < /home/linuxgsm/grants.sql
 
 USER linuxgsm
 
 HEALTHCHECK --start-period=60s --timeout=300s --interval=60s --retries=3 CMD ./docker-liveness.sh
+
+RUN ./gokz-runner.sh
 
 CMD ["bash"]

@@ -86,8 +86,8 @@ sleep 5s
 
 #tail -F ~/linuxgsm/log/console/lgsm-gameserver-console.log -F ~/linuxgsm/log/script/lgsm-gameserver-script.log -F ~/linuxgsm/log/script/lgsm-gameserver-alert.log
 #
-while :
-do
-./lgsm-gameserver monitor
-sleep 30s
-done
+#while :
+#do
+#./lgsm-gameserver monitor
+#sleep 30s
+#done
