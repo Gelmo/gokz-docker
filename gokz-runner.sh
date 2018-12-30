@@ -76,12 +76,12 @@ sleep 5s
 # gomplate -f ${servercfgfullpath}.tmpl -o ${servercfgfullpath}   // I can't predict what the filename is. 
 
 #
-./lgsm-gameserver start
-sleep 30s
+#./lgsm-gameserver start
+#sleep 30s
 #
 
-./lgsm-gameserver details
-sleep 5s
+#./lgsm-gameserver details
+#sleep 5s
 #./lgsm-gameserver monitor
 
 #tail -F ~/linuxgsm/log/console/lgsm-gameserver-console.log -F ~/linuxgsm/log/script/lgsm-gameserver-script.log -F ~/linuxgsm/log/script/lgsm-gameserver-alert.log

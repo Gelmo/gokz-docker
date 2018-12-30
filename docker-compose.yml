@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   game:
-    image: gokz-docker-copy
+    image: gelmo/gokz-docker
     ports:
       - '27015:27015/tcp'
       - '27015:27015/udp'
