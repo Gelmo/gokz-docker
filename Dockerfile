@@ -103,6 +103,7 @@ RUN mkdir -p ~/linuxgsm/lgsm/config-lgsm/$LGSM_GAMESERVERNAME
 RUN mkdir /home/linuxgsm/linuxgsm/log/
 RUN mkdir /home/linuxgsm/linuxgsm/log/script/
 RUN touch /home/linuxgsm/linuxgsm/log/script/lgsm-gameserver-script.log
+RUN chmod +x /home/linuxgsm/linuxgsm/lgsm/functions/*.sh
 
 RUN touch INSTALLING.LOCK \
  && ./linuxgsm.sh $LGSM_GAMESERVERNAME \
@@ -110,8 +111,7 @@ RUN touch INSTALLING.LOCK \
  && ./lgsm-gameserver auto-install \
  && rm -f INSTALLING.LOCK
 RUN wget https://kzmaps.tangoworldwide.net/mapcycles/gokz.txt \
- && mv /home/linuxgsm/linuxgsm/gokz.txt /home/linuxgsm/linuxgsm/serverfiles/csgo/mapcycle.txt \
- && chmod +x /home/linuxgsm/linuxgsm/lgsm/functions/*.sh
+ && mv /home/linuxgsm/linuxgsm/gokz.txt /home/linuxgsm/linuxgsm/serverfiles/csgo/mapcycle.txt
 
 RUN echo "metamod" | ./lgsm-gameserver mi \
  && sleep 5s
