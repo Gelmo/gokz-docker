@@ -71,8 +71,9 @@ sleep 5s
 
 wget https://kzmaps.tangoworldwide.net/mapcycles/gokz.txt
 
-rm /home/linuxgsm/linuxgsm/serverfiles/csgo/mapcycle.txt
 mv /home/linuxgsm/linuxgsm/gokz.txt /home/linuxgsm/linuxgsm/serverfiles/csgo/mapcycle.txt
+
+touch /home/linuxgsm/linuxgsm/log/script/lgsm-gameserver-script.log
 
 #./lgsm-gameserver mu
 
