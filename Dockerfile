@@ -55,9 +55,14 @@ RUN mkdir /home/linuxgsm/linuxgsm/log/ \
 RUN ./linuxgsm.sh csgoserver \
  && mv csgoserver lgsm-gameserver
 
-ADD --chown=linuxgsm:linuxgsm gokz.sh /home/linuxgsm/linuxgsm/
-ADD --chown=linuxgsm:linuxgsm kzt.sh /home/linuxgsm/linuxgsm/
-RUN chmod +x /home/linuxgsm/linuxgsm/gokz.sh \
- && chmod +x /home/linuxgsm/linuxgsm/kzt.sh
+RUN ./lgsm-gameserver auto-install
+
+RUN echo "metamod" | ./lgsm-gameserver mi \
+ && sleep 5s
+
+RUN echo "sourcemod" | ./lgsm-gameserver mi \
+ && sleep 5s
+
+RUN mv -f databases.cfg /home/linuxgsm/linuxgsm/serverfiles/csgo/addons/sourcemod/configs/
 
 CMD ["bash"]
