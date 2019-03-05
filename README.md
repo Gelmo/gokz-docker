@@ -1,30 +1,48 @@
-# kz-docker
+# gokz-docker
 
 ## Start your container:
 ```
 docker run -p 27015:27015/tcp -p 27015:27015/udp -ti gelmo/gokz-docker:latest
 ```
 
-### You'll be at a bash shell. To start the server, do the following:
+### You'll be at a bash shell. Add your GSLT in the appropriate field:
+
+```
+nano /home/linuxgsm/linuxgsm/lgsm/config-lgsm/csgoserver/lgsm-gameserver.cfg
+```
+
+### Add admins:
+
+```
+nano /home/linuxgsm/linuxgsm/serverfiles/csgo/addons/sourcemod/configs/admins_simple.ini
+```
+
+### Start the server:
 
 ```
 ./lgsm-gameserver start
 ```
 
-## Advanced:
+## WAIT TWO MINUTES
 
-#### Changing the server config:
-The server config can be found at /home/linuxgsm/linuxgsm/lgsm/config-lgsm/csgoserver/lgsm-gameserver.cfg
-Documentation for this file can be found at https://docs.linuxgsm.com/configuration/linuxgsm-config
+### Adjust other configs. Suggestions:
 
-The text editors vim and nano have been included in the image; you can use these to edit the above file and any other configs you would like to adjust. This would be a good time to setup admin configs if you don't want to use rcon. To restart the server after your adjustments have been made:
 ```
-./lgsm-gameserver restart
+nano /home/linuxgsm/linuxgsm/serverfiles/csgo/cfg/sourcemod/mapchooser_extended.cfg
+nano /home/linuxgsm/linuxgsm/serverfiles/csgo/cfg/sourcemod/rtv.cfg
 ```
 
-To open rcon:
+### Change map via !map command or use RCON:
+
 ```
 ./lgsm-gameserver console
+map kz_lume
 ```
+
+## Advanced:
+
+Documentation for LinuxGSM can be found at https://docs.linuxgsm.com/configuration/
+
+The text editors vim and nano have been included in the image.
 
 More documentaiton will be coming soon and I will add examples for different use-cases such as map testing.
